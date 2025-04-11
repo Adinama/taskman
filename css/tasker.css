@@ -1,0 +1,56 @@
+main{
+    max-width: 1040px;
+    margin: 0 auto;
+}
+.container{
+    background-color: rgb(211, 57, 83);
+    border: rgb(163, 30, 52) 2px solid;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.task{
+    border: rgb(163, 30, 52) 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0;
+}
+#fomt-create-task{
+    width: 200px;
+    border-radius: 10px dark solid;
+    background-color: rgb(211, 57, 83);
+    border: rgb(163, 30, 52) 2px solid;
+    padding: 20px;
+    margin-top: 20px;
+}
+#fomt-create-task input {
+margin-top: 10px;
+}
+.immediate::after{
+    content: "!";
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin: 10px;
+}
+.control-panel{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.btn-edit,
+.btn-remove{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    color: rgb(141, 20, 101);
+    margin-left: 10px;
+    transition: all 0.3s easy-in-out;
+}
+.btn-remove:hover,
+.btn-remove:focus,
+.btn-edit:hover,
+.btn-edit:focus{
+    color: brown;
+    transform: scale(1.1);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/tasker.css">
+    <script defer src="js/tasker.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Менеджер задач</title>
+</head>
+
+<body>
+    <main>
+        <div class="control-panel">
+            <form id="fomt-create-task" action="">
+                <label for="task-name">Введите текст задачи</label><br>
+                <input type="text" id="task-name"><br>
+                <input type="submit" value="Создать задачу">
+            </form>
+            <button id="btn-clear">Очистить доску</button>
+        </div>
+
+        <div class="container">
+            <div class="task"><span>попить воду</span><i tabindex="0" class="bi bi-pencil btn-edit"></i><i tabindex="0"
+                    class="bi bi-x-lg btn-remove"></i>
+            </div>
+            <div class="task immediate"><span>сделать домашку</span><i tabindex="0" class="bi bi-pencil btn-edit"><i
+                        tabindex="0" class="bi bi-x-lg btn-remove"></i></i></div>
+            <div class="task immediate"><span>прибраться дома</span><i tabindex="0" class="bi bi-pencil btn-edit"></i><i
+                    tabindex="0" class="bi bi-x-lg btn-remove"></i></div>
+            <div class="task"><span>почитать книжку</span><i tabindex="0" class="bi bi-pencil btn-edit"></i><i
+                    tabindex="0" class="bi bi-x-lg btn-remove"></i>
+            </div>
+        </div>
+        <button class="btn1">по алфавиту</button>
+        <button class="btn2">по важности</button>
+    </main>
+</body>
+
+</html>
