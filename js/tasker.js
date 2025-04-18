@@ -56,7 +56,7 @@ btnClear.addEventListener("click", () => {
 })
 
 
-/*удаление задач*/
+
 // let i = 0;
 // const elems = document.querySelectorAll('*');//звездочка = все элементы на стр
 // for (let elem of elems) {
@@ -69,9 +69,15 @@ btnClear.addEventListener("click", () => {
 //         console.log(e.currentTarget);
 //     });
 // }
+/*делегирование задач*/
 container.addEventListener("click", (event)=>{
     let btn = event.target //элемент на который клмнкул прользоывватель
+    //удаление хзадач
     if (btn.classList.contains("btn-remove")){// если это кнопка удаления,то ..
         btn.closest(".task").remove();
+    }
+    //редактирование задач
+    if (btn.classList.contains("btn-edit")){
+        btn.closest(".task").querySelector("span").setAttribute("contenteditable", "true")
     }
 })
