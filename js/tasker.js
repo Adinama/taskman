@@ -13,13 +13,14 @@
 //     console.log(staticNodeList)
 //     console.log(liveNodeList)
 
+
 const container = document.querySelector(".container")
 const formCreateTask = document.getElementById("fomt-create-task")
 const taskName = document.getElementById("task-name")
-let task = document.querySelectorAll(".tasks")
+let tasks = document.querySelectorAll(".tasks")
 const btnClear = document.getElementById("btn-clear")
 
-/**-------созадть новую звадачу */
+/**-------созадть новую задачу */
 
 formCreateTask.addEventListener("submit", function (event) {
     event.preventDefault(); //отменить действие по умолчанию. в нашем случае- перезагрузку страницы
@@ -32,43 +33,70 @@ formCreateTask.addEventListener("submit", function (event) {
     container.append(newTask)
     tasks = document.querySelectorAll(".task")
 })
-// const btn1 = document.querySelector("btn1")
 
-// function compare(a,b) {
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+
+function compare(a, b) {
+        if(a.innerHTML > b.innerHTML) return 1;
+        if(a.innerHTML == b.innerHTML) return 0;
+        if(a.innerHTML < b.innerHTML) return -1;
+    }
+
+    btn1.addEventListener("click", function() {
+        tasks = document.querySelectorAll(".task")
+        let newTasks = [...tasks].sort(compare);
+        container.innerHTML = "";
+        newTasks.forEach(task => container.append(task));
+    });
+
+    function compareReverse(a, b) {
+        if(b.innerHTML > a.innerHTML) return 1;
+        if(b.innerHTML == a.innerHTML) return 0;
+        if(b.innerHTML < a.innerHTML) return -1;
+    }
+
+    btn2.addEventListener("click", function() {
+        tasks = document.querySelectorAll(".task")
+        let newTasks = [...tasks].sort(compareReverse);
+        container.innerHTML = "";
+        newTasks.forEach(task => container.append(task));
+    });
+
+
+// const btn1 = document.querySelector("btn1")
+// function compareReverse(a,b) {
+//     a = a.querySelector("span");
+//     b = b.querySelector("span");
 //     if (a.innerHTML > b.innetHTML) return 1;
 //     if (a.innerHTML == b.innetHTML) return 0;
 //     if (a.innerHTML < b.innetHTML)return -1;
 // }
 // btn1.addEventListener("click", function(){
-//     let newTask = [...tasks] .sort(compare)
+//     let newTask = [...tasks] .sort(compareReverse)
 //     container.innerHTML="";
 //     for (let i in newTask){
 //         container.append(newTask[i])
 //     }
 // })
+
 // const btn2 = document.querySelector(".btn2")
+// btn2.addEventListener("click", function(){
+//     let newTask = [...tasks] 
+//     newTask = newTask.filter(task)
+//     container.innerHTML="";
+//     for (let i in newTask){
+//         container.append(newTask[i])
+//     }
+// })
 
 
-/*-------удаление вскех задач-----*/
+/*-------удаление всех задач-----*/
 
 btnClear.addEventListener("click", () => {
     container.innerHTML = "";
 })
 
-
-
-// let i = 0;
-// const elems = document.querySelectorAll('*');//звездочка = все элементы на стр
-// for (let elem of elems) {
-//     elem.addEventListener("click", (e) => {
-//         i++;
-//         console.log("этап " + i);
-//         console.log("целевой элемент:")
-//         console.log(e.target);
-//         console.log("элемент, на котором сработало событие:")
-//         console.log(e.currentTarget);
-//     });
-// }
 /*делегирование задач*/
 container.addEventListener("click", (event)=>{
     let btn = event.target //элемент на который клмнкул прользоывватель
